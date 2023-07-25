@@ -1,0 +1,21 @@
+<p style="color: green"><%= notice %></p>
+<h1>Departments</h1>
+
+<%= form_tag( departments_url, method: :get) do %>
+  <%= label_tag(:search, "Search for:") %>
+  <%= text_field_tag(:search) %>
+  <%= submit_tag("Search") %>
+<% end %>
+
+<br>
+
+<div id="departments">
+  <% @departments.each do |department| %>
+    <%= render department %>
+    <p>
+      <%= link_to "Show this department", department %>
+    </p>
+  <% end %>
+</div>
+
+<%= link_to "New department", new_department_path %>

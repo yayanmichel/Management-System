@@ -1,0 +1,24 @@
+
+<p style="color: green"><%= notice %></p>
+
+<h1>Spendings</h1>
+
+
+<%= form_tag( spendings_url, method: :get) do %>
+  <%= label_tag(:search, "Search for:") %>
+  <%= text_field_tag(:search) %>
+  <%= submit_tag("Search") %>
+<% end %>
+
+<br>
+
+<div id="spendings">
+  <% @spendings.each do |spending| %>
+    <%= render spending %>
+    <p>
+      <%= link_to "Show this spending", spending %>
+    </p>
+  <% end %>
+</div>
+
+<%= link_to "New spending", new_spending_path %>

@@ -1,0 +1,24 @@
+<p style="color: green"><%= notice %></p>
+
+<h1>Employees</h1>
+
+<%= form_tag( employees_url, method: :get) do %>
+  <%= label_tag(:search, "Search for:") %>
+  <%= text_field_tag(:search) %>
+  <%= submit_tag("Search") %>
+<% end %>
+
+<br>
+
+<div id="employees">
+  <% @employees.each do |employee| %>
+    <%= render employee %>
+    <p>
+      <%= link_to "Show this employee", employee %>
+    </p>
+  <% end %>
+</div>
+
+
+<%= link_to "New employee", new_employee_path %>
+
